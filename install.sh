@@ -1,24 +1,29 @@
 #!/bin/bash
-ZIP='pcm.zip'
-URL='https://github.com/RENATOADORNO/pcm/archive/refs/heads/aliases.zip'
-DIR='pcm-aliases'
-NAME='.pcm'
+ZIP='ptm.zip'
+URL='https://github.com/RENATOADORNO/ptm/archive/refs/heads/main.zip'
+DIR='ptm-main'
+NAME='.ptm'
 
 wget -O $ZIP $URL
 unzip $ZIP -d $HOME/
-mv $HOME/$DIR $HOME/$NAME
+mv $HOME/$DIR/$NAME $HOME/$NAME
 
 if [ -f $ZIP ]
 then
   rm $ZIP
 fi
 
+if [ -f $HOME/$DIR ]
+then
+  rm -R $HOME/$DIR
+fi
+
 BASHRC=$HOME/.bashrc
 exec_bash() {
 cat >> $BASHRC << EOF
-# pcm
-if [ -f ~/.pcm/pcm_aliases  ]; then
-  . ~/.pcm/pcm_aliases 
+# ptm
+if [ -f $HOME/.ptm/ptm_aliases.sh ]; then
+  . ~/.ptm/ptm_aliases.sh 
 fi
 EOF
 }
@@ -26,9 +31,9 @@ EOF
 ZSHRC=$HOME/.zshrc
 exec_zsh() {
 cat >> $ZSHRC << EOF
-# pcm
-if [ -f ~/.pcm/pcm_aliases  ]; then
-  . ~/.pcm/pcm_aliases 
+# ptm
+if [ -f $HOME/.ptm/ptm_aliases.sh ]; then
+  . ~/.ptm/ptm_aliases.sh 
 fi
 EOF
 }
@@ -43,9 +48,9 @@ fi
 
 # Teste o código de retorno para constatar se o arquivo foi criado ou não
 if [ $? -eq 0 ]; then
-  echo "pcm instalado com sucesso."
+  echo "ptm instalado com sucesso."
 else
-  echo "não foi posivel instalar o pcm"
+  echo "não foi posivel instalar o ptm"
 fi
 
 exit $?
