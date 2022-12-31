@@ -1,7 +1,7 @@
 # Project Template Maneger
 
 ## Dependencias
-Instale o wget e unzip
+Antes de intalar PTM certifique-se de que o **curl wget e unzip** esteja instalado em sua maquina.
 
 ## Install
 ```bash
