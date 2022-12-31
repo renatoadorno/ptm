@@ -1,6 +1,9 @@
-# variaveis
+# Templates
+DIR_TS_STITCHES="ts-stitches"
+DIR_TS_TAILWINDCSS="ts-tailwindcss"
+
+URL="https://github.com/RENATOADORNO/project-templates/archive/refs/heads/main.zip"
 ZIP='project-templates.zip'
-URL='https://github.com/RENATOADORNO/project-templates/archive/refs/heads/main.zip'
 TITLE="🔘 Project Template Manager 🔘"
 DIRNAME="project-templates-main"
 
@@ -10,7 +13,7 @@ ptm() {
   React() {
     echo " \033[0;33m 📝 Select template: \033[0m "
     echo " \033[0;36m 1. TS + Stitches \033[0m "
-    echo " \033[0;31m 2. TS + Tailwindcss \033[0m "
+    echo " \033[0;36m 2. TS + Tailwindcss \033[0m "
     echo
 
     echo "\033[0;33mSelect template option: \033[0m "
@@ -22,36 +25,66 @@ ptm() {
       echo
       ;;
     esac
-  }
 
-  React_TS_stitches() {
-    echo
-    echo "\033[0;33mInsert project name: \033[0m "
-    read PROJECT
-    if [ -n "$PROJECT" ]
-    then
+    React_TS_stitches() {
       echo
-      echo " \033[0;36m 🔹 Creating project.... \033[0m "
-      echo
-      wget -O $ZIP $URL
-      unzip $ZIP
-      mv $DIRNAME/react/ts-stitches ./$PROJECT
-      rm -r $DIRNAME
-      rm $ZIP
-      clear
-      echo " \033[7;33m $TITLE \033[0m "
-      echo
-      echo " \033[0;36m 🔹 Creating project.... \033[0m "
-      echo
-      echo " \033[0;32m ✅ Successfully Created Project.....
+      echo "\033[0;33mInsert project name: \033[0m "
+      read PROJECT
+      if [ -n "$PROJECT" ]
+      then
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        wget -O $ZIP $URL
+        unzip $ZIP
+        mv $DIRNAME/react/$DIR_TS_STITCHES ./$PROJECT
+        rm -r $DIRNAME
+        rm $ZIP
+        clear
+        echo " \033[7;33m $TITLE \033[0m "
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        echo " \033[0;32m ✅ Successfully Created Project.....
 
-      cd $PROJECT
-      yarn or npm i
-    "
-    else
-      echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
-      TS_stitches
-    fi
+        cd $PROJECT
+        yarn or npm i
+      "
+      else
+        echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
+        React_TS_stitches
+      fi
+    }
+
+    React_TS_tailwindcss() {
+      echo
+      echo "\033[0;33mInsert project name: \033[0m "
+      read PROJECT
+      if [ -n "$PROJECT" ]
+      then
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        wget -O $ZIP $URL
+        unzip $ZIP
+        mv $DIRNAME/react/$DIR_TS_TAILWINDCSS ./$PROJECT
+        rm -r $DIRNAME
+        rm $ZIP
+        clear
+        echo " \033[7;33m $TITLE \033[0m "
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        echo " \033[0;32m ✅ Successfully Created Project.....
+
+        cd $PROJECT
+        yarn or npm i
+      "
+      else
+        echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
+        React_TS_tailwindcss
+      fi
+    }
   }
   # -----------------------------------------------------------------------
 
