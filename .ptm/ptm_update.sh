@@ -29,7 +29,7 @@ ptm-up() {
     echo
     echo " \033[0;32m Updating..... \033[0m "
     rm $HOME/$NAME/$ARCHIVE
-    curl $URL_ARCHIVE --output $ARCHIVE
+    curl $URL_ARCHIVE --output $HOME/$NAME/$ARCHIVE
     echo
     echo " \033[0;32m Update successfully \033[0m "
   else
@@ -37,7 +37,7 @@ ptm-up() {
     echo " \033[0;31m File not found..... \033[0m "
     echo " \033[0;32m Updating..... \033[0m "
     echo
-    curl $URL_ARCHIVE  --output $ARCHIVE
+    curl $URL_ARCHIVE  --output $HOME/$NAME/$ARCHIVE
     echo
     echo " \033[0;32m Update successfully \033[0m "
   fi
