@@ -20,7 +20,7 @@ ptm() {
     read GPAC
     case $GPAC in
       1) React_TS_stitches ;;
-      2) NpmReact ;;
+      2) React_TS_tailwindcss ;;
       *) echo " \033[0;31m 🚫 Error - Option selects is invalid \033[0m "
       echo
       ;;
