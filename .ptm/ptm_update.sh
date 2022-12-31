@@ -1,3 +1,6 @@
+
+URL_UPDATE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_update.sh"
+URL_ARCHIVE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_aliases.sh"
 ARCHIVE="ptm_aliases.sh"
 NAME='.ptm'
 
@@ -26,7 +29,7 @@ ptm-up() {
     echo
     echo " \033[0;32m Updating..... \033[0m "
     rm $HOME/$NAME/$ARCHIVE
-    curl https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_aliases.sh --output $ARCHIVE
+    curl $URL_ARCHIVE --output $ARCHIVE
     echo
     echo " \033[0;32m Update successfully \033[0m "
   else
@@ -34,7 +37,7 @@ ptm-up() {
     echo " \033[0;31m File not found..... \033[0m "
     echo " \033[0;32m Updating..... \033[0m "
     echo
-    curl https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_aliases.sh --output $ARCHIVE
+    curl $URL_ARCHIVE  --output $ARCHIVE
     echo
     echo " \033[0;32m Update successfully \033[0m "
   fi
