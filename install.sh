@@ -1,29 +1,34 @@
 #!/bin/bash
-ZIP='ptm.zip'
-URL='https://github.com/RENATOADORNO/ptm/archive/refs/heads/main.zip'
-DIR='ptm-main'
+
+echo " \033[0;33m Starting ptm installation.... \033[0m "
+
+ARCHIVE_UP="ptm_update.sh"
+ARCHIVE="ptm_aliases.sh"
+URL_UPDATE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_update.sh"
+URL_ARCHIVE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_aliases.sh"
 NAME='.ptm'
 
-wget -O $ZIP $URL
-unzip $ZIP -d $HOME/
-mv $HOME/$DIR/$NAME $HOME/$NAME
-
-if [ -f $ZIP ]
+echo
+echo " \033[0;33m Checking files.... \033[0m "
+# Verifica se o diretorio existe
+if [ -d $HOME/$NAME ] && [ -f $HOME/$NAME/$ARCHIVE  ] && [ -f $HOME/$NAME/$ARCHIVE_UP  ]
 then
-  rm $ZIP
-fi
-
-if [ -f $HOME/$DIR ]
-then
-  rm -R $HOME/$DIR
+  echo
+  echo " \033[0;32m ptm is already installed \033[0m "
+else
+  echo
+  mkdir $HOME/$NAME
+  curl $URL_ARCHIVE  --output $HOME/$NAME/$ARCHIVE
+  curl $URL_UPDATE  --output $HOME/$NAME/$ARCHIVE_UP
 fi
 
 BASHRC=$HOME/.bashrc
 exec_bash() {
 cat >> $BASHRC << EOF
-# ptm
+# ptm ----
 if [ -f $HOME/.ptm/ptm_aliases.sh ]; then
-  . ~/.ptm/ptm_aliases.sh 
+  . $HOME/.ptm/ptm_aliases.sh
+  . $HOME/.ptm/ptm_update.sh
 fi
 EOF
 }
@@ -31,9 +36,10 @@ EOF
 ZSHRC=$HOME/.zshrc
 exec_zsh() {
 cat >> $ZSHRC << EOF
-# ptm
+# ptm ----
 if [ -f $HOME/.ptm/ptm_aliases.sh ]; then
-  . ~/.ptm/ptm_aliases.sh 
+  . $HOME/.ptm/ptm_aliases.sh
+  . $HOME/.ptm/ptm_update.sh
 fi
 EOF
 }
@@ -48,9 +54,9 @@ fi
 
 # Teste o código de retorno para constatar se o arquivo foi criado ou não
 if [ $? -eq 0 ]; then
-  echo "ptm instalado com sucesso."
+  echo " \033[0;32m Installation successfully \033[0m "
 else
-  echo "não foi posivel instalar o ptm"
+  echo " \033[0;31m Error installing ptm \033[0m "
 fi
 
 exit $?
