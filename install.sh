@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo " \033[0;33m Starting ptm installation.... \033[0m "
+echo "🏷️ Starting ptm installation...."
 
 ARCHIVE_UP="ptm_update.sh"
 ARCHIVE="ptm_aliases.sh"
@@ -8,13 +8,11 @@ URL_UPDATE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_upd
 URL_ARCHIVE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_aliases.sh"
 NAME='.ptm'
 
-echo
-echo " \033[0;33m Checking files.... \033[0m "
 # Verifica se o diretorio existe
 if [ -d $HOME/$NAME ] && [ -f $HOME/$NAME/$ARCHIVE  ] && [ -f $HOME/$NAME/$ARCHIVE_UP  ]
 then
   echo
-  echo " \033[0;32m ptm is already installed \033[0m "
+  echo -e "✅ ptm is already installed"
 else
   echo
   mkdir $HOME/$NAME
@@ -54,9 +52,11 @@ fi
 
 # Teste o código de retorno para constatar se o arquivo foi criado ou não
 if [ $? -eq 0 ]; then
-  echo " \033[0;32m Installation successfully \033[0m "
+  echo
+  echo "✅ Installation successfully \033[0m "
 else
-  echo " \033[0;31m Error installing ptm \033[0m "
+  echo
+  echo "🚫 Error installing ptm \033[0m "
 fi
 
 exit $?
