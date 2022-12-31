@@ -8,18 +8,7 @@ URL_UPDATE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_upd
 URL_ARCHIVE="https://raw.githubusercontent.com/RENATOADORNO/ptm/main/.ptm/ptm_aliases.sh"
 NAME='.ptm'
 
-# Verifica se o diretorio existe
-if [ -d $HOME/$NAME ] && [ -f $HOME/$NAME/$ARCHIVE  ] && [ -f $HOME/$NAME/$ARCHIVE_UP  ]
-then
-  echo
-  echo -e "✅ ptm is already installed"
-else
-  echo
-  mkdir $HOME/$NAME
-  curl $URL_ARCHIVE  --output $HOME/$NAME/$ARCHIVE
-  curl $URL_UPDATE  --output $HOME/$NAME/$ARCHIVE_UP
-fi
-
+Add_Aliase() {
 BASHRC=$HOME/.bashrc
 exec_bash() {
 cat >> $BASHRC << EOF
@@ -50,6 +39,7 @@ if [ -f ~/.bashrc ]; then
   exec_bash
 fi
 
+
 # Teste o código de retorno para constatar se o arquivo foi criado ou não
 if [ $? -eq 0 ]; then
   echo
@@ -62,3 +52,17 @@ else
 fi
 
 exit $?
+}
+
+# Verifica se o diretorio existe
+if [ -d $HOME/$NAME ] && [ -f $HOME/$NAME/$ARCHIVE  ] && [ -f $HOME/$NAME/$ARCHIVE_UP  ]
+then
+  echo
+  echo -e "✅ ptm is already installed"
+else
+  echo
+  mkdir $HOME/$NAME
+  curl $URL_ARCHIVE  --output $HOME/$NAME/$ARCHIVE
+  curl $URL_UPDATE  --output $HOME/$NAME/$ARCHIVE_UP
+  Add_Aliase
+fi
