@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo
 echo "🏷️ Starting ptm installation...."
 
 ARCHIVE_UP="ptm_update.sh"
@@ -53,10 +53,12 @@ fi
 # Teste o código de retorno para constatar se o arquivo foi criado ou não
 if [ $? -eq 0 ]; then
   echo
-  echo "✅ Installation successfully \033[0m "
+  echo "✅ Installation successfully"
+  echo
 else
   echo
-  echo "🚫 Error installing ptm \033[0m "
+  echo "🚫 Error installing ptm"
+  echo
 fi
 
 exit $?
