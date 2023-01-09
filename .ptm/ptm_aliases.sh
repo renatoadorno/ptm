@@ -71,7 +71,7 @@ ptm() {
       fi
     }
 
-    React_JS_tailwindcss() {
+    React_JS_stitches() {
       echo
       echo "\033[0;33mInsert project name: \033[0m "
       read PROJECT
