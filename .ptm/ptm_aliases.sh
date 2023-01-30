@@ -118,6 +118,128 @@ ptm() {
       ;;
     esac
   }
+
+  Next() {
+    Next_ts_sass() {
+      echo
+      echo "\033[0;33mInsert project name: \033[0m "
+      read PROJECT
+      if [ -n "$PROJECT" ]
+      then
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        wget -O $ZIP $URL
+        unzip $ZIP
+        mv $DIRNAME/next/ts_sass ./$PROJECT
+        rm -r $DIRNAME
+        rm $ZIP
+        clear
+        echo " \033[7;33m $TITLE \033[0m "
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        echo " \033[0;32m ✅ Successfully Created Project.....
+
+        cd $PROJECT
+        yarn or npm i
+      "
+      else
+        echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
+        React_TS_tailwindcss
+      fi
+    }
+
+    Next_ts_chakra() {
+      echo
+      echo "\033[0;33mInsert project name: \033[0m "
+      read PROJECT
+      if [ -n "$PROJECT" ]
+      then
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        wget -O $ZIP $URL
+        unzip $ZIP
+        mv $DIRNAME/next/ts_chakra ./$PROJECT
+        rm -r $DIRNAME
+        rm $ZIP
+        clear
+        echo " \033[7;33m $TITLE \033[0m "
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        echo " \033[0;32m ✅ Successfully Created Project.....
+
+        cd $PROJECT
+        yarn or npm i
+      "
+      else
+        echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
+        React_TS_stitches
+      fi
+    }
+
+    echo " \033[0;33m 📝 Select template: \033[0m "
+    echo " \033[0;36m 1. TS + Sass \033[0m "
+    echo " \033[0;36m 2. TS + Chakra-UI \033[0m "
+    echo
+
+    echo "\033[0;33mSelect template option: \033[0m "
+    read GPAC
+    case $GPAC in
+      1) Next_ts_sass ;;
+      2) Next_ts_chakra ;;
+      *) echo " \033[0;31m 🚫 Error - Option selects is invalid \033[0m "
+      echo
+      ;;
+    esac
+  }
+  
+  Node() {
+    Node_express_ts_prisma() {
+      echo
+      echo "\033[0;33mInsert project name: \033[0m "
+      read PROJECT
+      if [ -n "$PROJECT" ]
+      then
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        wget -O $ZIP $URL
+        unzip $ZIP
+        mv $DIRNAME/node/express_ts_prisma ./$PROJECT
+        rm -r $DIRNAME
+        rm $ZIP
+        clear
+        echo " \033[7;33m $TITLE \033[0m "
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        echo " \033[0;32m ✅ Successfully Created Project.....
+
+        cd $PROJECT
+        yarn or npm i
+      "
+      else
+        echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
+        React_TS_tailwindcss
+      fi
+    }
+
+    echo " \033[0;33m 📝 Select template: \033[0m "
+    echo " \033[0;36m 1. Express + TS + Prisma \033[0m "
+    echo
+
+    echo "\033[0;33mSelect template option: \033[0m "
+    read GPAC
+    case $GPAC in
+      1) Node_express_ts_prisma ;;
+      *) echo " \033[0;31m 🚫 Error - Option selects is invalid \033[0m "
+      echo
+      ;;
+    esac
+  }
   # -----------------------------------------------------------------------
 
   clear
@@ -125,15 +247,17 @@ ptm() {
   echo " \033[7;33m $TITLE \033[0m "
     echo
     echo " \033[0;33m 📂 Select project type: \033[0m "
-    echo " \033[0;36m 1. React \033[0m "
-    echo " \033[0;32m 2. Node \033[0m "
+    echo " \033[0;36m 1. React.js \033[0m "
+    echo " \033[0;36m 1. Next.js \033[0m "
+    echo " \033[0;32m 2. Node.js \033[0m "
     echo
     echo "\033[0;33mSelect option: \033[0m "
     read INIT_OPTION
     echo
     case $INIT_OPTION in
       1) React ;;
-      2) Node ;;
+      2) Next ;;
+      3) Node ;;
       *) echo " \033[0;31m 🚫 Error - Option selects is invalid \033[0m "
         echo
         ;;
