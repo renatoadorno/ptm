@@ -248,8 +248,8 @@ ptm() {
     echo
     echo " \033[0;33m 📂 Select project type: \033[0m "
     echo " \033[0;36m 1. React.js \033[0m "
-    echo " \033[0;36m 1. Next.js \033[0m "
-    echo " \033[0;32m 2. Node.js \033[0m "
+    echo " \033[0;36m 2. Next.js \033[0m "
+    echo " \033[0;32m 3. Node.js \033[0m "
     echo
     echo "\033[0;33mSelect option: \033[0m "
     read INIT_OPTION
