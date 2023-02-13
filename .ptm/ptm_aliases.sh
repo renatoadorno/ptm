@@ -146,7 +146,7 @@ ptm() {
       "
       else
         echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
-        React_TS_tailwindcss
+        Next_ts_sass
       fi
     }
 
@@ -176,13 +176,44 @@ ptm() {
       "
       else
         echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
-        React_TS_stitches
+        Next_ts_chakra
+      fi
+    }
+
+    Next_ts_stitches() {
+      echo
+      echo "\033[0;33mInsert project name: \033[0m "
+      read PROJECT
+      if [ -n "$PROJECT" ]
+      then
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        wget -O $ZIP $URL
+        unzip $ZIP
+        mv $DIRNAME/next/ts_stitches ./$PROJECT
+        rm -r $DIRNAME
+        rm $ZIP
+        clear
+        echo " \033[7;33m $TITLE \033[0m "
+        echo
+        echo " \033[0;36m 🔹 Creating project.... \033[0m "
+        echo
+        echo " \033[0;32m ✅ Successfully Created Project.....
+
+        cd $PROJECT
+        yarn or npm i
+      "
+      else
+        echo " \033[0;31m 🚫 Digite o nome do projeto novamente \033[0m "
+        Next_ts_stitches
       fi
     }
 
     echo " \033[0;33m 📝 Select template: \033[0m "
     echo " \033[0;36m 1. TS + Sass \033[0m "
     echo " \033[0;36m 2. TS + Chakra-UI \033[0m "
+    echo " \033[0;36m 3. TS + Stitches \033[0m "
     echo
 
     echo "\033[0;33mSelect template option: \033[0m "
@@ -190,6 +221,7 @@ ptm() {
     case $GPAC in
       1) Next_ts_sass ;;
       2) Next_ts_chakra ;;
+      3) Next_ts_stitches ;;
       *) echo " \033[0;31m 🚫 Error - Option selects is invalid \033[0m "
       echo
       ;;
